@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PXI Fusion</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="popup" class="light-mode">
+        <h1>PXI Fusion</h1>
+        <button id="openProdigy">Open Prodigy</button>
+        
+        <div class="instructions">
+            <h2>PXI Fusion Cheat Menu</h2>
+            <h3>Console Version</h3>
+            <p>1. Open the console (F12 or Ctrl+Shift+I).</p>
+            <p>2. Paste the code below into the console and press Enter:</p>
+            <textarea id="consoleCode" readonly>(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+})();</textarea>
+            <button id="copyConsoleCode">Copy Code</button>
+
+            <h3>Bookmark Version</h3>
+            <p>1. Create a new bookmark.</p>
+            <p>2. Set the bookmark's URL to:</p>
+            <textarea id="bookmarkCode" readonly>javascript:(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+})();</textarea>
+            <button id="copyBookmarkCode">Copy Code</button>
+        </div>
+
+        <div id="socialLinks">
+            <button id="discordButton"><img src="icons/dis.png" alt="Discord"></button>
+            <button id="youtubeButton"><img src="icons/yt.png" alt="YouTube"></button>
+        </div>
+
+        <button id="toggleMode">Toggle Dark/Light Mode</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
