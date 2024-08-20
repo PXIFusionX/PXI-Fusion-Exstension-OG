@@ -11,7 +11,12 @@
       },
       "default_title": "PXI Fusion Menu"
     },
-    "permissions": ["activeTab", "storage", "scripting"],
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting",
+      "declarativeNetRequest"
+    ],
     "icons": {
       "16": "icon16.png",
       "48": "icon48.png",
