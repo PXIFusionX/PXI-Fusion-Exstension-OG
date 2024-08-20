@@ -11,28 +11,48 @@
     <button id="openProdigy">Open Prodigy</button>
     <div id="instructions">
       <h2>Console Version Instructions</h2>
-      <p>Open the console and paste the code below:</p>
+      <p>Follow these steps to use the PXI Fusion Cheat Menu:</p>
+      <ol>
+        <li>Open Prodigy Math Game in your browser.</li>
+        <li>Press <strong>F12</strong> or <strong>Ctrl+Shift+I</strong> to open the Developer Console.</li>
+        <li>Switch to the <strong>Console</strong> tab in the Developer Tools.</li>
+        <li>Copy the code below:</li>
+      </ol>
       <pre id="code-box">
-function() {
+(function() {
   const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+  
   fetch(scriptUrl)
     .then(response => response.text())
-    .then(code => eval(code))
+    .then(code => {
+      eval(code);
+    })
     .catch(error => console.error("Failed to load the script:", error));
-}
+})();
       </pre>
       <button id="copyCode">Copy Code</button>
-
       <h2>Bookmark Version Instructions</h2>
-      <p>Create a JavaScript bookmark with the following code:</p>
+      <p>To use the bookmark version:</p>
+      <ol>
+        <li>Create a new bookmark in your browser.</li>
+        <li>In the URL field, paste the following JavaScript code:</li>
+      </ol>
       <pre id="bookmark-code">
-javascript:(function(){const scriptUrl="https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";fetch(scriptUrl).then(response=>response.text()).then(code=>eval(code)).catch(error=>console.error("Failed to load the script:",error));})();
+javascript:(function() {
+  const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+  
+  fetch(scriptUrl)
+    .then(response => response.text())
+    .then(code => {
+      eval(code);
+    })
+    .catch(error => console.error("Failed to load the script:", error));
+})();
       </pre>
       <button id="copyBookmark">Copy Bookmark Code</button>
     </div>
-    <button id="discordButton"><img src="icons/dis.png" alt="Discord"></button>
-    <button id="youtubeButton"><img src="icons/Yt.png" alt="YouTube"></button>
-    <button id="toggleTheme">🌙</button>
+    <button id="discordButton">Discord</button>
+    <button id="youtubeButton">YouTube</button>
   </div>
   <script src="popup.js"></script>
 </body>

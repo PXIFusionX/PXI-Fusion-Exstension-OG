@@ -1,36 +1,37 @@
-chrome.webRequest.onBeforeSendHeaders.addListener(
-    function(details) {
-      if (details.url.startsWith("https://math.prodigygame.com/?launcher=true&code=")) {
-        chrome.scripting.executeScript({
-          target: {tabId: details.tabId},
-          func: () => {
-            const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-            fetch(scriptUrl)
-              .then(response => response.text())
-              .then(code => eval(code))
-              .catch(error => console.error("Failed to load the script:", error));
-          }
-        });
-      }
-      return {};
-    },
-    {urls: ["https://math.prodigygame.com/*"]},
-    ["blocking"]
-  );
+// background.js
+
+chrome.runtime.onInstalled.addListener(() => {
+    console.log('PXI Fusion Extension Installed');
   
-  chrome.runtime.onInstalled.addListener(() => {
-    fetch("https://discord.com/api/webhooks/1275219264915112011/O2bKtk2oyl9_5LFJJe8BRZd20xDXrYusIxm9wP8XoJwsClDEaB-Kq3M_CZJe_e5KgONI", {
-      method: "POST",
-      body: JSON.stringify({
-        content: "A new user has installed PXI Fusion!",
-        embeds: [{ 
-          title: "Installation",
-          description: `Timestamp: ${new Date().toISOString()}`
-        }]
-      }),
+    // Webhook URL and payload
+    const webhookUrl = 'https://discord.com/api/webhooks/1275219264915112011/O2bKtk2oyl9_5LFJJe8BRZd20xDXrYusIxm9wP8XoJwsClDEaB-Kq3M_CZJe_e5KgONI';
+    const payload = {
+      content: 'New user has added the PXI Fusion extension!',
+      embeds: [
+        {
+          title: 'Extension Installation',
+          description: `A new user has installed the PXI Fusion extension.`,
+          fields: [
+            {
+              name: 'Timestamp',
+              value: new Date().toISOString(),
+              inline: true
+            }
+          ]
+        }
+      ]
+    };
+  
+    // Send the webhook
+    fetch(webhookUrl, {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
-      }
-    });
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Webhook sent:', data))
+    .catch(error => console.error('Error sending webhook:', error));
   });
   
