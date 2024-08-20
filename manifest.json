@@ -2,39 +2,37 @@
     "manifest_version": 3,
     "name": "PXI Fusion",
     "version": "1.0",
-    "description": "A loader to hack Prodigy Math Game with a fancy UI and additional features.",
-    "permissions": [
-      "activeTab",
-      "declarativeNetRequest",
-      "storage"
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
-      }
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+      },
+      "default_title": "PXI Fusion Menu"
     },
+    "permissions": ["activeTab", "storage", "scripting"],
     "icons": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
     },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [{
+      "resources": ["*.png"],
+      "matches": ["<all_urls>"]
+    }],
+    "host_permissions": [
+      "*://*.prodigygame.com/*"
+    ],
     "declarative_net_request": {
-      "rule_resources": [
-        {
-          "id": "ruleset_1",
-          "enabled": true,
-          "path": "rules.json"
-        }
-      ]
-    },
-    "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self'"
+      "rule_resources": [{
+        "id": "rules",
+        "enabled": true,
+        "path": "rules.json"
+      }]
     }
   }
   

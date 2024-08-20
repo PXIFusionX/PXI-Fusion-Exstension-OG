@@ -7,54 +7,29 @@
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div id="popup-container" class="draggable">
-        <div id="header">
-            <h1>PXI Fusion Loader</h1>
-            <button id="close-btn">&times;</button>
+    <div id="popup-container">
+        <div id="header" class="draggable">
+            <h1>PXI Fusion Menu</h1>
+            <button id="close-btn">×</button>
         </div>
         <div id="content">
             <button id="open-prodigy-btn">Open Prodigy</button>
             <div class="instructions">
-                <h2>Console Version</h2>
-                <p>1. Open the browser console (F12 or right-click -> Inspect -> Console).</p>
-                <p>2. Paste the following code:</p>
-                <div class="code-box">
-                    <code>(function() {
-    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-    fetch(scriptUrl)
-        .then(response => response.text())
-        .then(code => {
-            eval(code);
-        })
-        .catch(error => console.error("Failed to load the script:", error));
-})();</code>
-                </div>
+                <h2>Code</h2>
+                <div class="code-box" id="code-box"></div>
                 <button id="copy-code-btn">Copy Code</button>
             </div>
             <div class="instructions">
-                <h2>Bookmark Version</h2>
-                <p>1. Create a new bookmark.</p>
-                <p>2. Set the URL to the following code:</p>
-                <div class="code-box">
-                    <code>javascript:(function() {
-    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-    fetch(scriptUrl)
-        .then(response => response.text())
-        .then(code => {
-            eval(code);
-        })
-        .catch(error => console.error("Failed to load the script:", error));
-})();</code>
-                </div>
+                <h2>Bookmark Code</h2>
+                <div class="code-box" id="bookmark-code-box"></div>
                 <button id="copy-bookmark-code-btn">Copy Bookmark Code</button>
             </div>
             <div id="links">
-                <img id="discord-icon" src="icons/dis.png" alt="Discord">
-                <img id="youtube-icon" src="icons/yt.png" alt="YouTube">
+                <img id="discord-icon" src="discord-icon.png" alt="Discord">
+                <img id="youtube-icon" src="youtube-icon.png" alt="YouTube">
             </div>
         </div>
     </div>
-
     <script src="popup.js"></script>
 </body>
 </html>
