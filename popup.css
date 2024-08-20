@@ -1,36 +1,85 @@
-// popup.js
+/* popup.css */
 
-document.addEventListener('DOMContentLoaded', function () {
-  const openProdigyButton = document.getElementById('openProdigy');
-  const copyCodeButton = document.getElementById('copyCode');
-  const copyBookmarkButton = document.getElementById('copyBookmark');
-  const discordButton = document.getElementById('discordButton');
-  const youtubeButton = document.getElementById('youtubeButton');
-
-  const codeBox = document.getElementById('code-box');
-  const bookmarkCode = document.getElementById('bookmark-code');
-
-  openProdigyButton.addEventListener('click', function () {
-    window.open('https://math.prodigygame.com/?launcher=true&code=*', '_blank');
-  });
-
-  copyCodeButton.addEventListener('click', function () {
-    navigator.clipboard.writeText(codeBox.innerText).then(() => {
-      alert('Code copied to clipboard!');
-    });
-  });
-
-  copyBookmarkButton.addEventListener('click', function () {
-    navigator.clipboard.writeText(bookmarkCode.innerText).then(() => {
-      alert('Bookmark code copied to clipboard!');
-    });
-  });
-
-  discordButton.addEventListener('click', function () {
-    window.open('https://discord.gg/VAkGbXKwhY', '_blank');
-  });
-
-  youtubeButton.addEventListener('click', function () {
-    window.open('https://www.youtube.com/@PXIFusionX', '_blank');
-  });
-});
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #ffffff;
+    overflow: hidden;
+  }
+  
+  #popup-container {
+    width: 80vw;
+    height: 80vh;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    position: relative;
+    margin: 0 auto;
+    top: 10%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+  }
+  
+  button {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    background-color: #007c91;
+  }
+  
+  #instructions {
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  h2, h3 {
+    color: #00bcd4;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+  }
+  
+  #code-box, #bookmark-code {
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    overflow: auto;
+    white-space: pre-wrap;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  
+  #code-box {
+    border: 1px solid #00bcd4;
+  }
+  
+  #bookmark-code {
+    border: 1px solid #0097a7;
+  }
+  
+  #discordButton {
+    background-color: #7289da;
+  }
+  
+  #youtubeButton {
+    background-color: #ff0000;
+  }
+  
