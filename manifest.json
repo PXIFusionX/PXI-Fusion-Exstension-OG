@@ -8,7 +8,8 @@
       "webRequest",
       "webRequestBlocking",
       "activeTab",
-      "scripting"
+      "scripting",
+      "declarativeNetRequest"
     ],
     "background": {
       "service_worker": "background.js"
@@ -31,6 +32,15 @@
     },
     "host_permissions": [
       "https://math.prodigygame.com/*"
-    ]
+    ],
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "rules",
+          "enabled": true,
+          "path": "rules.json"
+        }
+      ]
+    }
   }
   

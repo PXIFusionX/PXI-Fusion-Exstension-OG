@@ -23,8 +23,7 @@ document.getElementById('openProdigy').addEventListener('click', () => {
   });
   
   document.getElementById('toggleTheme').addEventListener('click', () => {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    document.getElementById('toggleTheme').textContent = body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    document.body.classList.toggle('dark-mode');
+    document.getElementById('toggleTheme').textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
   });
   
