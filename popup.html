@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PXI Fusion</title>
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PXI Fusion</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div id="popup-container">
-        <div id="header" class="draggable">
-            <h1>PXI Fusion Menu</h1>
-            <button id="close-btn">×</button>
-        </div>
-        <div id="content">
-            <button id="open-prodigy-btn">Open Prodigy</button>
-            <div class="instructions">
-                <h2>Code</h2>
-                <div class="code-box" id="code-box"></div>
-                <button id="copy-code-btn">Copy Code</button>
-            </div>
-            <div class="instructions">
-                <h2>Bookmark Code</h2>
-                <div class="code-box" id="bookmark-code-box"></div>
-                <button id="copy-bookmark-code-btn">Copy Bookmark Code</button>
-            </div>
-            <div id="links">
-                <img id="discord-icon" src="discord-icon.png" alt="Discord">
-                <img id="youtube-icon" src="youtube-icon.png" alt="YouTube">
-            </div>
-        </div>
+  <div id="container">
+    <button id="openProdigy">Open Prodigy</button>
+    <div id="instructions">
+      <h2>Console Version Instructions</h2>
+      <p>Open the console and paste the code below:</p>
+      <pre id="code-box">
+function() {
+  const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+  fetch(scriptUrl)
+    .then(response => response.text())
+    .then(code => eval(code))
+    .catch(error => console.error("Failed to load the script:", error));
+}
+      </pre>
+      <button id="copyCode">Copy Code</button>
+
+      <h2>Bookmark Version Instructions</h2>
+      <p>Create a JavaScript bookmark with the following code:</p>
+      <pre id="bookmark-code">
+javascript:(function(){const scriptUrl="https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";fetch(scriptUrl).then(response=>response.text()).then(code=>eval(code)).catch(error=>console.error("Failed to load the script:",error));})();
+      </pre>
+      <button id="copyBookmark">Copy Bookmark Code</button>
     </div>
-    <script src="popup.js"></script>
+    <button id="discordButton"><img src="icons/dis.png" alt="Discord"></button>
+    <button id="youtubeButton"><img src="icons/Yt.png" alt="YouTube"></button>
+    <button id="toggleTheme">🌙</button>
+  </div>
+  <script src="popup.js"></script>
 </body>
 </html>

@@ -1,108 +1,64 @@
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-
-#popup-container {
-    width: 80vw;
-    height: 80vh;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    overflow-y: auto;
-}
-
-#header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ccc;
-}
-
-#header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-#close-btn {
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-#content {
-    margin-top: 20px;
-}
-
-#open-prodigy-btn {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#open-prodigy-btn:hover {
-    background-color: #45a049;
-}
-
-.instructions {
-    margin-top: 20px;
-}
-
-.instructions h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-}
-
-.code-box {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
+    background: #f9f9f9;
+    color: #333;
     padding: 10px;
-    border-radius: 5px;
-    font-family: monospace;
-    word-wrap: break-word;
-}
-
-#copy-code-btn, #copy-bookmark-code-btn {
-    margin-top: 10px;
-    padding: 10px;
+    width: 300px;
+  }
+  
+  #container {
+    text-align: center;
+  }
+  
+  button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
-    background-color: #007BFF;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
+    margin: 4px 2px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#copy-code-btn:hover, #copy-bookmark-code-btn:hover {
-    background-color: #0069d9;
-}
-
-#links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-#links img {
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-}
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  #code-box, #bookmark-code {
+    background: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: left;
+  }
+  
+  #copyCode, #copyBookmark {
+    background: #2196F3;
+  }
+  
+  #copyCode:hover, #copyBookmark:hover {
+    background: #0b7dda;
+  }
+  
+  #discordButton img, #youtubeButton img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  #toggleTheme {
+    background: #555;
+  }
+  
+  #toggleTheme.dark-mode {
+    background: #333;
+    color: #fff;
+  }
+  
+  .dark-mode {
+    background: #333;
+    color: #fff;
+  }
+  
