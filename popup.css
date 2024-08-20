@@ -1,72 +1,36 @@
-/* popup.css */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  #popup-container {
-    width: 80vw;
-    height: 80vh;
-    background: #fff;
-    border-radius: 20px; /* Smooth rounded edges */
-    padding: 20px;
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
-    position: fixed; /* Fixed position to keep it in place */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-  }
-  
-  #openProdigy, #copyCode, #copyBookmark, #discordButton, #youtubeButton {
-    display: block;
-    width: calc(100% - 20px); /* Full width minus padding */
-    padding: 15px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  #openProdigy {
-    background: #4CAF50;
-    color: white;
-  }
-  
-  #copyCode, #copyBookmark {
-    background: #2196F3;
-    color: white;
-  }
-  
-  #discordButton {
-    background: #7289DA;
-    color: white;
-  }
-  
-  #youtubeButton {
-    background: #FF0000;
-    color: white;
-  }
-  
-  #code-box, #bookmark-code {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    max-height: 250px;
-  }
-  
-  .dark-mode #popup-container {
-    background: #333;
-    color: #fff;
-  }
-  
-  .dark-mode #code-box, .dark-mode #bookmark-code {
-    background: #1e1e1e;
-    color: #ccc;
-  }
-  
+// popup.js
+
+document.addEventListener('DOMContentLoaded', function () {
+  const openProdigyButton = document.getElementById('openProdigy');
+  const copyCodeButton = document.getElementById('copyCode');
+  const copyBookmarkButton = document.getElementById('copyBookmark');
+  const discordButton = document.getElementById('discordButton');
+  const youtubeButton = document.getElementById('youtubeButton');
+
+  const codeBox = document.getElementById('code-box');
+  const bookmarkCode = document.getElementById('bookmark-code');
+
+  openProdigyButton.addEventListener('click', function () {
+    window.open('https://math.prodigygame.com/?launcher=true&code=*', '_blank');
+  });
+
+  copyCodeButton.addEventListener('click', function () {
+    navigator.clipboard.writeText(codeBox.innerText).then(() => {
+      alert('Code copied to clipboard!');
+    });
+  });
+
+  copyBookmarkButton.addEventListener('click', function () {
+    navigator.clipboard.writeText(bookmarkCode.innerText).then(() => {
+      alert('Bookmark code copied to clipboard!');
+    });
+  });
+
+  discordButton.addEventListener('click', function () {
+    window.open('https://discord.gg/VAkGbXKwhY', '_blank');
+  });
+
+  youtubeButton.addEventListener('click', function () {
+    window.open('https://www.youtube.com/@PXIFusionX', '_blank');
+  });
+});

@@ -10,46 +10,46 @@
   <div id="popup-container">
     <button id="openProdigy">Open Prodigy</button>
     <div id="instructions">
-      <h2>Console Version Instructions</h2>
-      <p>Follow these steps to use the PXI Fusion Cheat Menu:</p>
-      <ol>
-        <li>Open Prodigy Math Game in your browser.</li>
-        <li>Press <strong>F12</strong> or <strong>Ctrl+Shift+I</strong> to open the Developer Console.</li>
-        <li>Switch to the <strong>Console</strong> tab in the Developer Tools.</li>
-        <li>Copy the code below:</li>
-      </ol>
-      <pre id="code-box">
-(function() {
-  const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-  
-  fetch(scriptUrl)
-    .then(response => response.text())
-    .then(code => {
-      eval(code);
-    })
-    .catch(error => console.error("Failed to load the script:", error));
-})();
-      </pre>
-      <button id="copyCode">Copy Code</button>
-      <h2>Bookmark Version Instructions</h2>
-      <p>To use the bookmark version:</p>
-      <ol>
-        <li>Create a new bookmark in your browser.</li>
-        <li>In the URL field, paste the following JavaScript code:</li>
-      </ol>
-      <pre id="bookmark-code">
-javascript:(function() {
-  const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
-  
-  fetch(scriptUrl)
-    .then(response => response.text())
-    .then(code => {
-      eval(code);
-    })
-    .catch(error => console.error("Failed to load the script:", error));
-})();
-      </pre>
-      <button id="copyBookmark">Copy Bookmark Code</button>
+      <h2>Instructions</h2>
+      <div>
+        <h3>Console Version</h3>
+        <p>1. Open the developer console in your browser:</p>
+        <ul>
+          <li>Chrome: Press <code>Ctrl + Shift + J</code> (or <code>Cmd + Option + J</code> on Mac)</li>
+          <li>Firefox: Press <code>Ctrl + Shift + K</code> (or <code>Cmd + Option + K</code> on Mac)</li>
+          <li>Edge: Press <code>Ctrl + Shift + I</code> and go to the "Console" tab</li>
+        </ul>
+        <p>2. Paste the following code into the console:</p>
+        <div id="code-box">
+          (function() {
+            const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+            fetch(scriptUrl)
+                .then(response => response.text())
+                .then(code => {
+                    eval(code);
+                })
+                .catch(error => console.error("Failed to load the script:", error));
+          })();
+        </div>
+        <button id="copyCode">Copy Code</button>
+      </div>
+      <div>
+        <h3>Bookmark Version</h3>
+        <p>1. Create a new bookmark in your browser.</p>
+        <p>2. Paste the following code into the URL field:</p>
+        <div id="bookmark-code">
+          javascript:(function() {
+            const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+            fetch(scriptUrl)
+                .then(response => response.text())
+                .then(code => {
+                    eval(code);
+                })
+                .catch(error => console.error("Failed to load the script:", error));
+          })();
+        </div>
+        <button id="copyBookmark">Copy Bookmark Code</button>
+      </div>
     </div>
     <button id="discordButton">Discord</button>
     <button id="youtubeButton">YouTube</button>
