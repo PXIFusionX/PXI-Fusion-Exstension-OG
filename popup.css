@@ -7,16 +7,23 @@ body {
     align-items: center;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
 #popup-container {
     width: 70%;
     max-width: 900px;
+    height: 400px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
     padding: 20px;
+    overflow: hidden;
 }
 
 #header {
@@ -41,6 +48,7 @@ body {
 
 #content {
     margin-top: 20px;
+    overflow-y: auto;
 }
 
 #open-prodigy-btn {
@@ -107,10 +115,6 @@ body {
 }
 
 .draggable {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     cursor: move;
     z-index: 1000;
 }
