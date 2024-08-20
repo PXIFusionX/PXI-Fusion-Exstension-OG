@@ -1,67 +1,67 @@
-document.getElementById('openProdigy').onclick = function() {
+document.getElementById('open-prodigy-btn').addEventListener('click', function() {
     window.open('https://math.prodigygame.com/?launcher=true&code=*', '_blank');
-};
+});
 
-document.getElementById('copyConsoleCode').onclick = function() {
-    const code = document.getElementById('consoleCode').value;
-    navigator.clipboard.writeText(code);
-    alert('Code copied to clipboard!');
-};
+document.getElementById('copy-code-btn').addEventListener('click', function() {
+    const code = `(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+})();`;
+    navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+    });
+});
 
-document.getElementById('copyBookmarkCode').onclick = function() {
-    const code = document.getElementById('bookmarkCode').value;
-    navigator.clipboard.writeText(code);
-    alert('Code copied to clipboard!');
-};
+document.getElementById('copy-bookmark-code-btn').addEventListener('click', function() {
+    const code = `javascript:(function() {
+    const scriptUrl = "https://raw.githubusercontent.com/DragonProdHax/PXI/main/PXI%20Fusion";
+    fetch(scriptUrl)
+        .then(response => response.text())
+        .then(code => {
+            eval(code);
+        })
+        .catch(error => console.error("Failed to load the script:", error));
+})();`;
+    navigator.clipboard.writeText(code).then(() => {
+        alert('Bookmark code copied to clipboard!');
+    });
+});
 
-document.getElementById('discordButton').onclick = function() {
+document.getElementById('discord-icon').addEventListener('click', function() {
     window.open('https://discord.gg/VAkGbXKwhY', '_blank');
-};
+});
 
-document.getElementById('youtubeButton').onclick = function() {
+document.getElementById('youtube-icon').addEventListener('click', function() {
     window.open('https://www.youtube.com/@PXIFusionX', '_blank');
-};
+});
 
-document.getElementById('toggleMode').onclick = function() {
-    const popup = document.getElementById('popup');
-    if (popup.classList.contains('light-mode')) {
-        popup.classList.remove('light-mode');
-        popup.classList.add('dark-mode');
-    } else {
-        popup.classList.remove('dark-mode');
-        popup.classList.add('light-mode');
+document.getElementById('close-btn').addEventListener('click', function() {
+    window.close();
+});
+
+// Dragging functionality
+const popup = document.getElementById('popup-container');
+let isDragging = false;
+let offsetX, offsetY;
+
+popup.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    offsetX = e.clientX - popup.offsetLeft;
+    offsetY = e.clientY - popup.offsetTop;
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (isDragging) {
+        popup.style.left = `${e.clientX - offsetX}px`;
+        popup.style.top = `${e.clientY - offsetY}px`;
     }
-};
+});
 
-// Draggable Popup
-dragElement(document.getElementById('popup'));
-
-function dragElement(element) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    element.onmousedown = dragMouseDown;
-
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
-    }
-
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
